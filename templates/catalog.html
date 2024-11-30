@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Головна</a>
+            <a href="/catalog">Каталог</a>
+            <a href="/orders">Замовлення</a>
+            <a href="/contacts">Контакти</a>
+            <a href="/about">Про нас</a>
+        </nav>
+    </header>
+
+    <h1>Каталог</h1>
+    <div class="product-list">
+        {% for product in products %}
+        <div class="product-item">
+            <img src="/static/images/{{ product.image }}" alt="{{ product.name }}">
+            <h2>{{ product.name }}</h2>
+            <p>Ціна: {{ product.price }} грн</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

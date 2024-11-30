@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Головна</a>
+            <a href="/catalog">Каталог</a>
+            <a href="/orders">Замовлення</a>
+            <a href="/contacts">Контакти</a>
+            <a href="/about">Про нас</a>
+        </nav>
+    </header>
+
+    <h1>Ласкаво просимо до нашого магазину!</h1>
+    <form method="POST">
+        <label for="product_id">Оберіть товар:</label>
+        <select name="product_id" id="product_id">
+            {% for product in products %}
+            <option value="{{ product.id }}">{{ product.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="quantity">Кількість:</label>
+        <input type="number" name="quantity" id="quantity" value="1" min="1">
+
+        <label for="customer_type">Тип клієнта:</label>
+        <select name="customer_type" id="customer_type">
+            <option value="Роздріб">Роздріб</option>
+            <option value="Бізнес">Опт</option>
+        </select>
+
+        <div style="display: flex; justify-content: space-between;">
+            <button type="submit" name="calculate">Розрахувати</button>
+            <button type="submit" name="order">Замовити</button>
+        </div>
+    </form>
+
+    {% if receipt %}
+        <h2>Чек</h2>
+        <p>Товар: {{ receipt.product_name }}</p>
+        <p>Кількість: {{ receipt.quantity }}</p>
+        <p>Тип клієнта: {{ receipt.customer_type }}</p>
+        {% if receipt.discount > 0 %}
+            <p>Знижка (20%): {{ receipt.discount }} грн</p>
+        {% endif %}
+        <p>Загальна сума: {{ receipt.total_price }} грн</p>
+    {% endif %}
+
+    {% if thank_you_message %}
+        <p class="thank-you-message">{{ thank_you_message }}</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,150 @@
+/* Загальні стилі */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Шапка сайту */
+header {
+    background-color: #0066cc;
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+    background-color: #004d99;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+/* Головна сторінка */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: #0066cc;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+form select, form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form select:focus, form input:focus {
+    border-color: #0066cc;
+    outline: none;
+}
+
+form button {
+    width: 48%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #0066cc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #004d99;
+    transform: scale(1.05);
+}
+
+form button:active {
+    background-color: #003366;
+}
+
+/* Чек */
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2rem;
+    color: #444;
+}
+
+p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Анімація */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+form {
+    animation: fadeIn 0.8s ease-out;
+}
+
+h1, h2, p {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Кнопка успішного замовлення */
+.thank-you-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color: green;
+    font-weight: bold;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Для мобільних пристроїв */
+@media (max-width: 600px) {
+    form button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Замовлення</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Головна</a>
+            <a href="/catalog">Каталог</a>
+            <a href="/orders">Замовлення</a>
+            <a href="/contacts">Контакти</a>
+            <a href="/about">Про нас</a>
+        </nav>
+    </header>
+
+    <h1>Історія замовлень</h1>
+    {% if orders %}
+        <ul>
+            {% for order in orders %}
+            <li>
+                Товар: {{ order.product_name }}, Кількість: {{ order.quantity }}, 
+                Тип клієнта: {{ order.customer_type }}, Знижка: {{ order.discount }} грн, 
+                Сума: {{ order.total_price }} грн
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Замовлень поки що немає.</p>
+    {% endif %}
+</body>
+</html>
